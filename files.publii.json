@@ -2,7 +2,7 @@
     {
         "path": "404.html",
         "type": "file",
-        "md5": "ff98642a875054dfb4ec6ef1e541d773"
+        "md5": "1230de228f1db932d194749ffaacbc45"
     },
     {
         "path": "assets",
@@ -27,7 +27,7 @@
     {
         "path": "/assets/css/style.css",
         "type": "file",
-        "md5": "8206031c14704c18023d8f7b8ad40c38"
+        "md5": "2110fdcc9616a96348b5f5ad11c64055"
     },
     {
         "path": "assets/dynamic",
@@ -82,22 +82,37 @@
     {
         "path": "/authors/nathan-henrique/index.html",
         "type": "file",
-        "md5": "e70155b785723af75eb65646ee643d76"
+        "md5": "e165f18d5c030d396b04bee4eb52960e"
     },
     {
-        "path": "nathan-henrique-macedo-santos.html",
+        "path": "feed.json",
         "type": "file",
-        "md5": "8f616082c0034a73de9c827cdb600d1c"
+        "md5": "cabfbcfc7afa94ab4135d68af51dde8f"
+    },
+    {
+        "path": "feed.xml",
+        "type": "file",
+        "md5": "ea30115f6f86a3ffc9414c19aff14266"
+    },
+    {
+        "path": "index.html",
+        "type": "file",
+        "md5": "cfafbf23616857b732b7f109a7edd020"
+    },
+    {
+        "path": "nathan-henrique.html",
+        "type": "file",
+        "md5": "612440e7094deedcbbbee4d2afdd5c72"
     },
     {
         "path": "robots.txt",
         "type": "file",
-        "md5": "8380552153dd203577ba73b6e59860d1"
+        "md5": "42b87a6b3e863089fe6c58226b218900"
     },
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "156d1553c0bc0afe9d34f9b78b705b4b"
+        "md5": "12338e4a7a9533d35e9be5290cb4d964"
     },
     {
         "path": "sitemap.xsl",
@@ -112,6 +127,6 @@
     {
         "path": "/tags/index.html",
         "type": "file",
-        "md5": "039ee2934bfcd82859954101e6cec81c"
+        "md5": "f06f481ccff7983585c2367cb17857d1"
     }
 ]
