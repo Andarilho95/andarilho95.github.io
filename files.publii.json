@@ -1,0 +1,117 @@
+[
+    {
+        "path": "404.html",
+        "type": "file",
+        "md5": "020956ea4aac85c695ddc0e553851fb2"
+    },
+    {
+        "path": "assets",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "assets/css",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/assets/css/editor.css",
+        "type": "file",
+        "md5": "e5909a88ba1158a79ba2dbf82d6b2d86"
+    },
+    {
+        "path": "/assets/css/main.css",
+        "type": "file",
+        "md5": "7d1734de365b08cb66ba028a19c84e1c"
+    },
+    {
+        "path": "/assets/css/style.css",
+        "type": "file",
+        "md5": "8206031c14704c18023d8f7b8ad40c38"
+    },
+    {
+        "path": "assets/dynamic",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "assets/js",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/assets/js/scripts.js",
+        "type": "file",
+        "md5": "e66ec016e1abd2297b17a5d038b695b7"
+    },
+    {
+        "path": "/assets/js/scripts.min.js",
+        "type": "file",
+        "md5": "d0fc1030089a37f93a2d51bf6d07565c"
+    },
+    {
+        "path": "/assets/js/svg-fix.js",
+        "type": "file",
+        "md5": "7c0d2bb7276904b382e80bf2d85e8a96"
+    },
+    {
+        "path": "/assets/js/svg-map.js",
+        "type": "file",
+        "md5": "f0c119fe4ab4e9bba79dea32d15e32df"
+    },
+    {
+        "path": "assets/svg",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/assets/svg/svg-map.svg",
+        "type": "file",
+        "md5": "cf04dfd5c3cc64e0be44692fe7d976a6"
+    },
+    {
+        "path": "authors",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "authors/nathan-henrique",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/authors/nathan-henrique/index.html",
+        "type": "file",
+        "md5": "bae3fe0fa33c93a74d69d6b04b1bb81c"
+    },
+    {
+        "path": "nathan-henrique-macedo-santos.html",
+        "type": "file",
+        "md5": "16176fd974c7cc269e931a6485002d81"
+    },
+    {
+        "path": "robots.txt",
+        "type": "file",
+        "md5": "8380552153dd203577ba73b6e59860d1"
+    },
+    {
+        "path": "sitemap.xml",
+        "type": "file",
+        "md5": "156d1553c0bc0afe9d34f9b78b705b4b"
+    },
+    {
+        "path": "sitemap.xsl",
+        "type": "file",
+        "md5": "51a7bcec43fa1ef0366100d5c2edbe75"
+    },
+    {
+        "path": "tags",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/tags/index.html",
+        "type": "file",
+        "md5": "6001dc333c985a3eef8616e905359855"
+    }
+]
