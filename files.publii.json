@@ -2,7 +2,7 @@
     {
         "path": "404.html",
         "type": "file",
-        "md5": "1230de228f1db932d194749ffaacbc45"
+        "md5": "320856706214de7d143696f1fdac9e31"
     },
     {
         "path": "assets",
@@ -82,37 +82,37 @@
     {
         "path": "/authors/nathan-henrique/index.html",
         "type": "file",
-        "md5": "e165f18d5c030d396b04bee4eb52960e"
+        "md5": "6294ed5e1c7052dc511d3b82f8487632"
     },
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "cabfbcfc7afa94ab4135d68af51dde8f"
+        "md5": "0ea474b56b8b32b9fb77e84ffa4b5916"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "ea30115f6f86a3ffc9414c19aff14266"
+        "md5": "0d1ffd6f9f112e2dcbe744fb516ccd69"
     },
     {
         "path": "index.html",
         "type": "file",
-        "md5": "cfafbf23616857b732b7f109a7edd020"
+        "md5": "9860378a85fdfafc8d45fdeaac212df0"
     },
     {
         "path": "nathan-henrique.html",
         "type": "file",
-        "md5": "612440e7094deedcbbbee4d2afdd5c72"
+        "md5": "d6c2e8870c11eb3b01646de32f4f23f6"
     },
     {
         "path": "robots.txt",
         "type": "file",
-        "md5": "42b87a6b3e863089fe6c58226b218900"
+        "md5": "18326b9d06e12ad2beaa7ebcd80b90a2"
     },
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "12338e4a7a9533d35e9be5290cb4d964"
+        "md5": "8aafd34899fb7d3681cdcf5a4e0e01b9"
     },
     {
         "path": "sitemap.xsl",
@@ -127,6 +127,6 @@
     {
         "path": "/tags/index.html",
         "type": "file",
-        "md5": "f06f481ccff7983585c2367cb17857d1"
+        "md5": "ac8dddf813af2063430f6ffa691f72c2"
     }
 ]

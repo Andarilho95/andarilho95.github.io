@@ -2,8 +2,8 @@
     "version": "https://jsonfeed.org/version/1",
     "title": "Portifólio",
     "description": "",
-    "home_page_url": "https://git.com",
-    "feed_url": "https://git.com/feed.json",
+    "home_page_url": "https://andarilho95.github.io/Portifolio",
+    "feed_url": "https://andarilho95.github.io/Portifolio/feed.json",
     "user_comment": "",
     "author": {
         "name": "Nathan Henrique"
