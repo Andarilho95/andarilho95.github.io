@@ -2,7 +2,7 @@
     {
         "path": "404.html",
         "type": "file",
-        "md5": "020956ea4aac85c695ddc0e553851fb2"
+        "md5": "ff98642a875054dfb4ec6ef1e541d773"
     },
     {
         "path": "assets",
@@ -82,12 +82,12 @@
     {
         "path": "/authors/nathan-henrique/index.html",
         "type": "file",
-        "md5": "bae3fe0fa33c93a74d69d6b04b1bb81c"
+        "md5": "e70155b785723af75eb65646ee643d76"
     },
     {
         "path": "nathan-henrique-macedo-santos.html",
         "type": "file",
-        "md5": "16176fd974c7cc269e931a6485002d81"
+        "md5": "8f616082c0034a73de9c827cdb600d1c"
     },
     {
         "path": "robots.txt",
@@ -112,6 +112,6 @@
     {
         "path": "/tags/index.html",
         "type": "file",
-        "md5": "6001dc333c985a3eef8616e905359855"
+        "md5": "039ee2934bfcd82859954101e6cec81c"
     }
 ]
