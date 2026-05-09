@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="https://nathan.tec.br/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://andarilho95.github.io/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 <url>
-<loc>https://nathan.tec.br/</loc>
+<loc>https://andarilho95.github.io/</loc>
 </url>
 <url>
-<loc>https://nathan.tec.br/nathan-henrique-macedo-santos.html</loc>
+<loc>https://andarilho95.github.io/nathan-henrique-macedo-santos.html</loc>
 <lastmod>2026-05-08T22:32:09-04:00</lastmod>
 </url>
 </urlset>
