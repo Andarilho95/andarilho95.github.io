@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://nathan.tec.br/sitemap.xml

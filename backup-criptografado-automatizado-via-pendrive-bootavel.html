@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Backup Criptografado Automatizado via Pendrive Bootável - Infra + Sec</title><meta name="description" content="1. Resumo Este projeto surgiu após problemas recorrentes causados por backups desorganizados, ausência de padronização entre mídias e dificuldade em rastrear versões consistentes dos arquivos. Em alguns casos, isso resultou em perda de dados e incerteza sobre a integridade das cópias disponíveis. Para resolver esse&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="stylesheet" href="https://nathan.tec.br/media/plugins/syntaxHighlighter/prism-black.css"><script data-goatcounter="https://nathantecbr.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><link rel="canonical" href="https://nathan.tec.br/backup-criptografado-automatizado-via-pendrive-bootavel.html"><link rel="alternate" type="application/atom+xml" href="https://nathan.tec.br/feed.xml" title="Infra + Sec - RSS"><link rel="alternate" type="application/json" href="https://nathan.tec.br/feed.json" title="Infra + Sec - JSON"><meta property="og:title" content="Backup Criptografado Automatizado via Pendrive Bootável"><meta property="og:site_name" content="Infra + Sec"><meta property="og:description" content="1. Resumo Este projeto surgiu após problemas recorrentes causados por backups desorganizados, ausência de padronização entre mídias e dificuldade em rastrear versões consistentes dos arquivos. Em alguns casos, isso resultou em perda de dados e incerteza sobre a integridade das cópias disponíveis. Para resolver esse&hellip;"><meta property="og:url" content="https://nathan.tec.br/backup-criptografado-automatizado-via-pendrive-bootavel.html"><meta property="og:type" content="article"><link rel="stylesheet" href="https://nathan.tec.br/assets/css/style.css?v=a0ba884548820066dfadd8416036abba"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://nathan.tec.br/backup-criptografado-automatizado-via-pendrive-bootavel.html"},"headline":"Backup Criptografado Automatizado via Pendrive Bootável","datePublished":"2026-05-18T14:12-04:00","dateModified":"2026-05-18T19:22-04:00","description":"1. Resumo Este projeto surgiu após problemas recorrentes causados por backups desorganizados, ausência de padronização entre mídias e dificuldade em rastrear versões consistentes dos arquivos. Em alguns casos, isso resultou em perda de dados e incerteza sobre a integridade das cópias disponíveis. Para resolver esse&hellip;","author":{"@type":"Person","name":"Nathan Henrique","url":"https://nathan.tec.br/authors/nathan-henrique/"},"publisher":{"@type":"Organization","name":"Nathan Henrique"}}</script><noscript><style>img[loading] {
+                    opacity: 1;
+                }</style></noscript></head><body class="page-template"><header class="top js-header"><a class="logo" href="https://nathan.tec.br/">Infra + Sec</a></header><main class="page"><article class="content"><div class="hero hero--noimage"><header class="hero__content"><div class="wrapper"><h1>Backup Criptografado Automatizado via Pendrive Bootável</h1></div></header></div><div class="entry-wrapper content__entry"><h3 id="1-resumo">1. Resumo</h3><p>Este projeto surgiu após problemas recorrentes causados por backups desorganizados, ausência de padronização entre mídias e dificuldade em rastrear versões consistentes dos arquivos. Em alguns casos, isso resultou em perda de dados e incerteza sobre a integridade das cópias disponíveis.<br><br>Para resolver esse cenário, foi desenvolvida uma infraestrutura portátil de backup baseada em um ambiente Arch Linux executado a partir de um pendrive bootável. O sistema opera de forma independente da instalação principal, automatizando rotinas de backup por meio do rsync, mecanismos de interrupção segura em caso de falha e registro detalhado de logs para auditoria e análise.<br><br>O projeto também incorpora versionamento utilizando snapshots Btrfs para reduzir consumo de armazenamento e preservar histórico das alterações. Seu foco não é ser uma solução genérica, mas fornecer um processo previsível, reproduzível e confiável para um ambiente específico. Atualmente o desenvolvimento principal foi concluído e a solução encontra-se em fase de validação operacional.</p><h3 id="2-desafio">2. Desafio</h3><h6 id="21-particoes-e-volumes-criptografados-do-ssd">2.1. Partições e volumes criptografados do SSD</h6><p>O principal desafio do projeto não era apenas copiar arquivos, mas lidar com múltiplas camadas de armazenamento, criptografia e sistemas de arquivos distintos sem depender do sistema operacional instalado. Antes que qualquer backup pudesse ser executado, era necessário reconstruir manualmente diversas etapas de preparação do ambiente.</p><h3 id="3-arquitetura-de-armazenamento">3. Arquitetura de Armazenamento</h3><h6 id="31andnbspssd-interno">3.1.&nbsp;SSD interno.</h6><p>O SSD principal contém a partição EFI BOOT, o volume criptografado LUKS2 e, internamente, um volume EXT4 utilizado como volume único para o sistema operacional.</p><figure class="post__image post__image--center"><img loading="lazy" src="https://nathan.tec.br/media/posts/4/ssd-estado-yed.png" height="800" width="916" alt="" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://nathan.tec.br/media/posts/4/responsive/ssd-estado-yed-xs.png 640w, https://nathan.tec.br/media/posts/4/responsive/ssd-estado-yed-sm.png 768w, https://nathan.tec.br/media/posts/4/responsive/ssd-estado-yed-md.png 1024w, https://nathan.tec.br/media/posts/4/responsive/ssd-estado-yed-lg.png 1366w, https://nathan.tec.br/media/posts/4/responsive/ssd-estado-yed-xl.png 1600w, https://nathan.tec.br/media/posts/4/responsive/ssd-estado-yed-2xl.png 1920w"></figure><h6 id="32-hd-externo">3.2. HD externo</h6><p>O HD externo contém um volume criptografado LUKS2 e, internamente, um volume Btrfs contendo snapshots versionados do sistema principal.</p><figure class="post__image post__image--center"><img loading="lazy" src="https://nathan.tec.br/media/posts/4/hd-externo-estado-yed.png" height="800" width="917" alt="" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://nathan.tec.br/media/posts/4/responsive/hd-externo-estado-yed-xs.png 640w, https://nathan.tec.br/media/posts/4/responsive/hd-externo-estado-yed-sm.png 768w, https://nathan.tec.br/media/posts/4/responsive/hd-externo-estado-yed-md.png 1024w, https://nathan.tec.br/media/posts/4/responsive/hd-externo-estado-yed-lg.png 1366w, https://nathan.tec.br/media/posts/4/responsive/hd-externo-estado-yed-xl.png 1600w, https://nathan.tec.br/media/posts/4/responsive/hd-externo-estado-yed-2xl.png 1920w"></figure><h3 id="4-sistema-operacional">4. Sistema operacional</h3><p>A escolha do Arch Linux foi motivada pela necessidade de um ambiente previsível, mínimo e com baixo acoplamento. Como o objetivo do projeto é executar uma rotina crítica de backup a partir de um pendrive bootável, reduzir a quantidade de componentes e serviços em execução ajuda a minimizar interferências externas durante o processo.<br><br>A filosofia do Arch Linux favorece esse modelo ao permitir a construção de um sistema composto apenas pelos componentes estritamente necessários para a execução da tarefa. Em vez de depender de uma distribuição com diversos serviços e abstrações habilitados por padrão, a proposta foi manter o ambiente o mais simples e controlável possível.<br><br>Um ponto de atenção é o fato de o Arch Linux ser uma distribuição rolling release, característica que pode introduzir alterações frequentes ao longo do tempo. Para reduzir esse risco, o sistema utiliza o kernel Linux LTS (Long Term Support), priorizando estabilidade e previsibilidade em vez da adoção imediata de recursos mais recentes.<br><br>Como resultado, o ambiente executado pelo pendrive opera com o mínimo necessário, reduzindo a superfície de falhas e mantendo o processo de backup mais controlado.</p><h3 id="5-fluxo-geral-da-solucao">5. Fluxo Geral da Solução</h3><p>O diagrama abaixo representa o fluxo operacional completo executado automaticamente pelo sistema.</p><figure class="post__image post__image--center"><img loading="lazy" src="https://nathan.tec.br/media/posts/4/workflow-diagrama.png" height="292" width="1174" alt="" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://nathan.tec.br/media/posts/4/responsive/workflow-diagrama-xs.png 640w, https://nathan.tec.br/media/posts/4/responsive/workflow-diagrama-sm.png 768w, https://nathan.tec.br/media/posts/4/responsive/workflow-diagrama-md.png 1024w, https://nathan.tec.br/media/posts/4/responsive/workflow-diagrama-lg.png 1366w, https://nathan.tec.br/media/posts/4/responsive/workflow-diagrama-xl.png 1600w, https://nathan.tec.br/media/posts/4/responsive/workflow-diagrama-2xl.png 1920w"></figure><h3 id="6-analise-do-workflow">6. Análise do Workflow</h3><h6 id="61-iniciar-arch-linux">6.1. Iniciar Arch Linux</h6><p>Durante a inicialização, o ambiente executa login automático e inicia a rotina principal de backup.</p><pre class="language-bash"><code>if [[ "$(tty)" == "/dev/tty1" ]]; then
+  ./run-bak.sh
+fi</code></pre><h6 id="62-executar-script">6.2. Executar script</h6><p>O script run-bak.sh é responsável por execução, logging e desligamento da máquina após todo o processo ter sido executado com sucesso.</p><pre class="language-bash"><code>#!/bin/bash
+
+START_DATE=$(date '+%Y-%m-%d-%H-%M-%S')
+
+LOG="/bak-logs/${START_DATE}-bak_script.log"
+
+#faz o logging do script
+./bak.sh 2&gt;&1 | tee "$LOG"
+
+if grep -q "BACKUP_FINALIZADO_POWEROFF" "$LOG"; then
+  echo "Backup OK, Good Bye!!!"
+  systemctl poweroff
+fi</code></pre><h6 id="63-script-principal-baksh">6.3. Script principal bak.sh</h6><p>O script não foi projetado para recuperação automática de falhas. A solução adota uma abordagem fail-fast, onde eventos inesperados interrompem imediatamente a execução para evitar continuidade em estados potencialmente inconsistentes.</p><pre class="language-bash"><code># gerador de logs
+log() {
+  local level="$1"
+  shift
+  printf '[%s] [%s] %s\n' \
+    "$(date '+%Y-%m-%d-%H-%M-%S')" \
+    "$level" \
+    "$*"
+}
+# interrompe a execução aguardando intervenção manual
+panic() {
+  echo
+  read -p "ENTER para continuar..."
+  exit 1
+}</code></pre><h6 id="64-deteccao-de-volumes">6.4. Detecção de volumes.</h6><p>Após o script inicia há uma verificação rápida se o volume criptográfico do root e o HD externo estão disponíveis.</p><pre class="language-bash"><code># verifica se os volumes ROOT e HD_EXTERNO estão presentes no sistema
+if ! blkid | grep -q "$CRYPT_UUID_ROOT"; then
+  log ERROR "Volume ROOT criptografado não detectado"
+  panic
+fi
+
+if ! blkid | grep -q "$CRYPT_UUID_HD_EXTERNO"; then
+  log ERROR "Volume HD externo criptografado não detectado"
+  panic
+fi</code></pre><h6 id="65-desbloqueio-de-volumes">6.5. Desbloqueio de volumes</h6><p>Os volumes LUKS2 são desbloqueados com autenticação manual. Senhas incorretas geram nova tentativa; falhas inesperadas interrompem o processo para evitar estados inconsistentes.</p><pre class="language-bash"><code>while true; do
+  log INFO "Inserir password criptográfica HD_EXTERNO"
+# captura a senha
+  read -s -p "Senha: " passwd_HD_EXTERNO
+  echo
+# envia a senha para o cryptsetup abrir o volume cryptografado do HD externo  
+  printf '%s' "$passwd_HD_EXTERNO" | cryptsetup open UUID=${CRYPT_UUID_HD_EXTERNO} HD_EXTERNO --key-file=-
+#captura o codigo de saida do cryptsetup
+  HD_EXTERNO_status=$?
+# limpa a variavel com a senha para mais segurança
+  unset passwd_HD_EXTERNO
+# verifica se houve sucesso no cryptsetup
+  if ((HD_EXTERNO_status == 0)); then
+    log INFO "HD_EXTERNO desbloqueado"
+    break
+# caso a senha seja digitada errada o loop retorna
+  elif ((HD_EXTERNO_status == 2)); then
+    log INFO "Senha errada digite novamente!!!"
+    # caso o erro seja outro aborta
+  else
+    log ERROR "Erro ao desbloquear volume!!!"
+    panic
+    fi
+done</code></pre><h6 id="66-montagem-do-volume-de-backup-btrfs">6.6. Montagem do volume de backup BTRFS</h6><p>A montagem do volume de backup com sistema de arquivos BTRFS, recebe o nível de compressão seis com o algorítimo de compressão ZSTD. Esse nível de compressão garante economia de espaço de armazenamento, níveis de compressão maiores podem ser muito lentos e exigir muito da CPU levando a um processo de backup lento. A aplicação de compressão pode tornar o backup mais rápido devido a HDs terem taxas de transferências muito baixas, arquivos comprimidos frequentemente podem chegar a ter a metade do tamanho, utilizando menos espaço em disco e sendo transferidos mais rapidamente.</p><pre class="language-bash"><code>if ! mount -t btrfs -o compress=zstd:6 UUID=${FS_UUID_HD_EXTERNO} '/mnt/HD_EXTERNO'; then
+  log ERROR "Erro ao montar o volume de backup BTRFS!!!"
+  panic
+fi</code></pre><h6 id="67-verificacao-de-armazenamento-disponivel">6.7. Verificação de armazenamento disponível</h6><p>Há uma verificação se o tamanho total do volume root pode ser armazenado no HD externo e exibe ao usuário, quanto está sendo usado e quanto resta de espaço disponível.</p><pre class="language-bash"><code>FREE_DISK_HD=$(df  /dev/mapper/HD_EXTERNO --output=avail | grep -v Avail)
+USED_DISK_ROOT=$(df  /dev/mapper/ROOT --output=used | grep -v Used)
+
+SHOW_FREE_DISK_HD=$(df -h /dev/mapper/HD_EXTERNO --output=avail | grep -v Avail)
+SHOW_USED_DISK_ROOT=$(df -h /dev/mapper/ROOT --output=used | grep -v Used)
+
+# verifica se há espaço em disco suficiente para backup
+if [ "$FREE_DISK_HD" -gt "$USED_DISK_ROOT" ]; then
+  log INFO "Há espaço em disco para backup atual"
+  echo
+  echo "Usado pelo sistema     ${SHOW_USED_DISK_ROOT}"
+  echo
+  echo "Disponivel para backup ${SHOW_FREE_DISK_HD}"
+  echo
+else
+  log ERROR "Espaço em disco insuficifiente para o backup"
+  echo
+  echo "Usado pelo sistema     ${SHOW_USED_DISK_ROOT}"
+  echo
+  echo "Disponivel para backup ${SHOW_FREE_DISK_HD}"
+  echo
+  # saido script em caso de falta de espaço em disco para o backup
+  panic 
+fi</code></pre><h6 id="68-gerenciamento-de-snapshots">6.8. Gerenciamento de snapshots</h6><h6 id="681-verificacao-de-snapshots-anteriores">6.8.1 Verificação de snapshots anteriores</h6><p>Os snapshots seguem o padrão AAAA-MM-DD-HH-MM-SS_versão. O sistema identifica automaticamente a versão mais recente disponível e a utiliza como base para a próxima execução.</p><pre class="language-bash"><code>for s in "$SNAPSHOTS_DIRECTORY"/*; do
+  n=${s##*_}
+
+  (( n &gt; counter )) && {
+    counter=$n
+    last="$s"
+  }
+done
+</code></pre><h6 id="681-snapshot-atual">6.8.1. Snapshot atual</h6><p>Após a identificação do snapshot anterior o script cria um novo snapshot com a data e hora atuais, e com a versão atual.</p><pre class="language-bash"><code># cria o nome do snapshot baseado na data e hora e adiciona o numero dele na cadeia de snapshots
+new="$(date '+%Y-%m-%d-%H-%M-%S')_$((counter+1))"
+
+# cria o snapshot
+if btrfs subvolume snapshot "$last" "$SNAPSHOTS_DIRECTORY/$new"; then
+  log INFO "Subvolume criado"
+  echo "Nome do Subvolume ---&gt; $new"
+else
+  log ERROR "Erro ao criar snapshot ${new}"
+  panic
+fi</code></pre><h3 id="69-transferencia-de-dados">6.9. Transferência de dados</h3><h6 id="691-rsync">6.9.1 Rsync</h6><p>O Rsync preserva permissões e sincroniza alterações em relação ao snapshot utilizado como base. Arquivos removidos também são excluídos, mantendo uma cópia consistente do sistema.<br><br>Diretórios considerados não essenciais, como arquivos da Steam, foram excluídos para evitar crescimento desnecessário do volume de dados.</p><pre class="language-bash"><code>log INFO "Copiando arquivos verificar tty2 ( ALT + -&gt; )"
+
+# copia os dados preservando a estrutura original do sistema
+rsync -aAXHv --delete --info=progress2 \
+  --exclude='/dev/*' \
+  --exclude='/proc/*' \
+  --exclude='/sys/*' \
+  --exclude='/tmp/*' \
+  --exclude='/run/*' \
+  --exclude='/mnt/*' \
+  --exclude='/media/*' \
+  --exclude='/lost+found/' \
+  --exclude='/home/nathan/.local/share/Steam/steamapps/common' \
+  --exclude='/swapfile' \
+  /mnt/ROOT/ \
+  "$SNAPSHOTS_DIRECTORY/$new" \
+  &gt; /bak-logs/"$START_DATE"-rsync.log 2&gt;&1 &</code></pre><h6 id="692-rsync-logs-e-status">6.9.2 Rsync logs e status</h6><p>Toda a execução do Rsync pode ser acompanhada no tty2 usando Alt + → ou Ctrl + Alt + 2. O Rsync gera logs de todo o processo, que podem ser analisados posteriormente. Após iniciar o Rsync, capturamos seu PID e executamos o tail no tty2 para acompanhar detalhadamente a execução enquanto o script aguarda a finalização do processo. Quando o Rsync terminar, verificamos o status da execução e, em caso de sucesso, o script prossegue.</p><pre class="language-bash"><code>#captura pid do rsync
+rsync_pid=$!
+
+# joga o log do rsync no tty2
+setsid sh -c "exec tail -f /bak-logs/${START_DATE}-rsync.log &lt;&gt; /dev/tty2 &gt;&0 2&gt;&1" &
+
+# espera o rsync finalizar
+wait "$rsync_pid"
+
+# captura o codigo de saida do rsync
+rsync_status=$?
+
+# verifica se o rsync finalizou com sucesso
+if ((rsync_status != 0 )); then
+  log ERROR "Erro no rsync, os dados podem ter sido copiados incorretamente!!!"
+  panic
+fi
+
+log INFO "Dados copiados com sucesso"</code></pre><h6 id="610-finalizacao">6.10. Finalização</h6><p>Após todo esse processo o script desmonta todos os volumes e fecha os volumes criptografados retornando ao script run-bak.sh que finaliza o processo de registro de logs e verifica se o script bak.sh foi finalizado com sucesso e desliga a máquina.</p><pre class="language-bash"><code># desmonta a raiz do sistema
+if ! umount /mnt/ROOT; then
+  log ERROR "Erro ao desmontar ROOT!!!"
+  panic
+fi
+
+log INFO "Desmontando HD_EXTERNO"
+# desmonta o HD externo
+if ! umount /mnt/HD_EXTERNO; then
+  log ERROR "Erro ao desmontar HD_EXTERNO!!!"
+  panic
+fi
+
+log INFO "Fechando volume luks ROOT"
+# fecha o volume criptografado do sistema
+if ! cryptsetup close /dev/mapper/ROOT; then
+  log ERROR "Erro ao fechar volume luks ROOT!!!"
+  panic
+fi
+
+log INFO "Fechando volume luks HD_EXTERNO"
+# fecha o volume criptografado do HD externo
+if ! cryptsetup close /dev/mapper/HD_EXTERNO; then
+  log ERROR "Erro ao fechar volume luks HD_EXTERNO!!!"
+  panic
+fi
+
+# nunca modificar ele é usado para marcar se o script terminou com exito e pode desligar o sistema
+log INFO "BACKUP_FINALIZADO_POWEROFF"</code></pre><h3 id="7-consideracoes">7. Considerações</h3><p>A estratégia adotada prioriza interrupção controlada em vez de recuperação automática, reduzindo a possibilidade de propagação silenciosa de falhas. Em situações inesperadas, a execução é interrompida para impedir continuidade em estados potencialmente inconsistentes. O objetivo é usá-la com bastante frequência e caso ocorram erros na execução a chance de corrupção de dados seja mínima pois há diversos pontos de verificação.</p></div></article></main><footer class="footer"><div class="wrapper"><div class="footer__copyright">Powered by Publii</div><button id="backToTop" class="footer__bttop" aria-label="Back to top" title="Back to top"><svg width="20" height="20"><use xlink:href="https://nathan.tec.br/assets/svg/svg-map.svg#toparrow"/></svg></button></div></footer><script defer="defer" src="https://nathan.tec.br/assets/js/scripts.min.js?v=dafec4f87fead6718cb125f0b0fc8441"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script><script defer="defer" src="https://nathan.tec.br/media/plugins/syntaxHighlighter/prism.js"></script></body></html>
